@@ -4,48 +4,40 @@ Painel em tempo real de apuração dos Boletins de Urna (BUs) divulgados pelas s
 
 ---
 
-## 🚀 Como Publicar no Servidor do GitHub Pages
+## ⚠️ Como resolver o erro de tela branca (`main.tsx 404`) no GitHub Pages
 
-O projeto já está 100% configurado para rodar diretamente online no GitHub Pages após você subir os arquivos.
+O erro `main.tsx:1 Failed to load resource: 404` acontece quando o GitHub Pages tenta carregar os arquivos de código-fonte não compilados da raiz (`/`) em vez dos arquivos compilados em JavaScript.
 
-### Passo 1: Subir os arquivos para o seu repositório no GitHub
+Você pode resolver isso em segundos escolhendo **uma das duas opções abaixo**:
 
-Abra o terminal na pasta do projeto e execute:
+### Opção 1: Via GitHub Actions (Recomendada — 1 clique)
 
-```bash
-git init
-git add .
-git commit -m "feat: configuracao para publicacao no github pages"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-git push -u origin main
-```
-
----
-
-### Passo 2: Ativar o GitHub Pages no Repositório
-
-1. No GitHub, abra o repositório que você acabou de subir.
-2. Clique na aba **Settings** (Configurações) no topo.
-3. No menu lateral esquerdo, clique em **Pages**.
-4. Em **Build and deployment** > **Source**, selecione:
+1. No seu repositório no GitHub, clique na aba **Settings** (Configurações) no topo.
+2. No menu lateral esquerdo, clique em **Pages**.
+3. Em **Build and deployment** > **Source**, altere de *"Deploy from a branch"* para:  
    👉 **GitHub Actions**
-   *(Não precisa alterar mais nada, o arquivo `.github/workflows/deploy.yml` já está pronto no projeto!)*
+4. Pronto! O GitHub executará o workflow `.github/workflows/deploy.yml` que compila o projeto e coloca no ar a versão pronta sem nenhum erro.
 
 ---
 
-### Passo 3: Acessar seu site online
+### Opção 2: Se preferir manter "Deploy from a branch" (Pasta `/docs`)
 
-O GitHub Actions iniciará o deploy automaticamente (leva cerca de 1 a 2 minutos).
-Você poderá acompanhar o progresso na aba **Actions** do seu repositório.
+Se preferir usar o método tradicional de branch sem GitHub Actions:
 
-Assim que concluir, seu site estará no ar no endereço:
-🌐 **`https://SEU-USUARIO.github.io/SEU-REPOSITORIO/`**
+1. No terminal do seu projeto, gere a pasta compilada executando:
+   ```bash
+   npm run build
+   git add .
+   git commit -m "build: gerar pasta docs compilada"
+   git push origin main
+   ```
+2. No GitHub, vá em **Settings** > **Pages**.
+3. Em **Branch**, selecione `main` e a pasta 👉 **/docs** (em vez de `/root`).
+4. Clique em **Save**.
 
 ---
 
-## ⚙️ Ajustes Técnicos já Configurados:
+## 🌐 Endereço do seu site
 
-1. **`vite.config.ts` com `base: './'`:** Garante que todos os arquivos `.js`, `.css` e imagens carreguem perfeitamente mesmo quando o site roda em subpastas de repositórios no GitHub Pages.
-2. **Workflow Automatizado (`.github/workflows/deploy.yml`):** Compila o projeto (`npm run build`) e envia os arquivos prontos para o servidor do GitHub a cada novo `git push`.
-3. **Suporte SPA e `.nojekyll`:** Criação automática de `404.html` e `.nojekyll` para evitar erros de roteamento ou bloqueio de arquivos.
+Assim que o deploy for concluído, o site estará acessível em:  
+`https://SEU-USUARIO.github.io/SEU-REPOSITORIO/`

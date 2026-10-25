@@ -1,0 +1,164 @@
+{
+  "ultimaAtualizacao": "10h30 de 25/10/2026",
+  "dataHoraIso": "2026-10-25T10:30:00-03:00",
+  "observacao": "Boletins de Urna físicos afixados nos consulados após encerramento da votação no exterior.",
+  "proximaJanelaFuso": "Europa (Lisboa, Londres, Paris, Roma, Berlim) com fechamento previsto entre 12h e 14h (Brasília).",
+  "paises": [
+    {
+      "id": "jp",
+      "country": "Japão",
+      "flavioVotes": 28538,
+      "lulaVotes": 7098,
+      "totalValid": 35636,
+      "flavioPct": 80.08,
+      "lulaPct": 19.92,
+      "winner": "flavio",
+      "isFullyApurado": true
+    },
+    {
+      "id": "au",
+      "country": "Austrália",
+      "flavioVotes": 3465,
+      "lulaVotes": 6017,
+      "totalValid": 9482,
+      "flavioPct": 36.5,
+      "lulaPct": 63.5,
+      "winner": "lula",
+      "isFullyApurado": true
+    },
+    {
+      "id": "ae",
+      "country": "Emirados Árabes Unidos*",
+      "flavioVotes": 772,
+      "lulaVotes": 643,
+      "totalValid": 1415,
+      "flavioPct": 54.56,
+      "lulaPct": 45.44,
+      "winner": "flavio",
+      "isFullyApurado": true,
+      "note": "* Emirados Árabes Unidos incluído em algumas compilações da CNN."
+    },
+    {
+      "id": "cn-main",
+      "country": "China (continental)",
+      "flavioVotes": 134,
+      "lulaVotes": 375,
+      "totalValid": 509,
+      "flavioPct": 26.3,
+      "lulaPct": 73.7,
+      "winner": "lula",
+      "isFullyApurado": true
+    },
+    {
+      "id": "cn-hk-agg",
+      "country": "China (incl. Hong Kong)**",
+      "flavioVotes": 267,
+      "lulaVotes": 502,
+      "totalValid": 769,
+      "flavioPct": 34.7,
+      "lulaPct": 65.3,
+      "winner": "lula",
+      "isFullyApurado": true,
+      "note": "** Algumas reportagens agregam Hong Kong à China; outras separam."
+    },
+    {
+      "id": "nz",
+      "country": "Nova Zelândia",
+      "flavioVotes": 101,
+      "lulaVotes": 418,
+      "totalValid": 519,
+      "flavioPct": 19.5,
+      "lulaPct": 80.5,
+      "winner": "lula",
+      "isFullyApurado": true
+    },
+    {
+      "id": "hk",
+      "country": "Hong Kong",
+      "flavioVotes": 133,
+      "lulaVotes": 127,
+      "totalValid": 260,
+      "flavioPct": 51.15,
+      "lulaPct": 48.85,
+      "winner": "flavio",
+      "isFullyApurado": true
+    },
+    {
+      "id": "sg",
+      "country": "Singapura",
+      "flavioVotes": 121,
+      "lulaVotes": 213,
+      "totalValid": 334,
+      "flavioPct": 36.2,
+      "lulaPct": 63.8,
+      "winner": "lula",
+      "isFullyApurado": true
+    },
+    {
+      "id": "tw",
+      "country": "Taiwan",
+      "flavioVotes": 130,
+      "lulaVotes": 94,
+      "totalValid": 224,
+      "flavioPct": 58.0,
+      "lulaPct": 42.0,
+      "winner": "flavio",
+      "isFullyApurado": true
+    },
+    {
+      "id": "kr",
+      "country": "Coreia do Sul",
+      "flavioVotes": 82,
+      "lulaVotes": 148,
+      "totalValid": 230,
+      "flavioPct": 35.65,
+      "lulaPct": 64.35,
+      "winner": "lula",
+      "isFullyApurado": true
+    },
+    {
+      "id": "th",
+      "country": "Tailândia",
+      "flavioVotes": 60,
+      "lulaVotes": 56,
+      "totalValid": 116,
+      "flavioPct": 51.7,
+      "lulaPct": 48.3,
+      "winner": "flavio",
+      "isFullyApurado": true
+    },
+    {
+      "id": "my",
+      "country": "Malásia",
+      "flavioVotes": 44,
+      "lulaVotes": 41,
+      "totalValid": 85,
+      "flavioPct": 51.8,
+      "lulaPct": 48.2,
+      "winner": "flavio",
+      "isFullyApurado": true
+    },
+    {
+      "id": "ph",
+      "country": "Filipinas",
+      "flavioVotes": 39,
+      "lulaVotes": 27,
+      "totalValid": 66,
+      "flavioPct": 59.1,
+      "lulaPct": 40.9,
+      "winner": "flavio",
+      "isFullyApurado": true
+    },
+    {
+      "id": "id",
+      "country": "Indonésia",
+      "flavioVotes": 23,
+      "lulaVotes": 15,
+      "totalValid": 38,
+      "flavioPct": 60.5,
+      "lulaPct": 39.5,
+      "winner": "flavio",
+      "isFullyApurado": true
+    }
+  ]
+}

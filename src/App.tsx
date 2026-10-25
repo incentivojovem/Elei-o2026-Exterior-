@@ -14,10 +14,12 @@ import { Footer } from './components/Footer';
 import { HtmlSnippetModal } from './components/HtmlSnippetModal';
 import { InfoModal } from './components/InfoModal';
 import { GithubModal } from './components/GithubModal';
+import { TimezoneTimeline } from './components/TimezoneTimeline';
 import { playNotificationSound } from './utils/sound';
 
 export default function App() {
-  const [countries] = useState<CountryResult[]>(INITIAL_COUNTRIES);
+  const [countries, setCountries] = useState<CountryResult[]>(INITIAL_COUNTRIES);
+  const [lastUpdatedText, setLastUpdatedText] = useState<string>('~10h30 de 25/10/2026');
   
   // Auto-refresh configuration (tempo fixo para checagem de dados)
   const [intervalSeconds, setIntervalSeconds] = useState<number>(30);
@@ -59,18 +61,26 @@ export default function App() {
     };
   }, [countries, lastCheckedTime]);
 
-  // Rotina real de verificação periódica de novos dados no servidor
+  // Rotina real de busca de BUs no arquivo de dados do servidor
   const handleCheckForUpdates = useCallback(async () => {
     setIsChecking(true);
 
     try {
-      // Faz requisição real com desativação de cache para verificar integridade da fonte
-      await fetch(window.location.href, {
-        method: 'HEAD',
+      // Faz requisição real para o arquivo de dados sem cache
+      const response = await fetch(`./dados-apuracao.json?t=${Date.now()}`, {
         headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-      }).catch(() => {
-        // Fallback silencioso para ambientes offline ou preview
       });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data && Array.isArray(data.paises)) {
+          // Atualiza dados se houver diferença ou novos países
+          setCountries(data.paises);
+          if (data.ultimaAtualizacao) {
+            setLastUpdatedText(data.ultimaAtualizacao);
+          }
+        }
+      }
 
       const nowStr = new Date().toLocaleTimeString('pt-BR', {
         hour: '2-digit',
@@ -83,7 +93,7 @@ export default function App() {
         playNotificationSound();
       }
     } catch {
-      // Tratamento de falha de conexão de rede
+      // Falha silenciosa de rede (mantém dados atuais em tela)
     } finally {
       setIsChecking(false);
     }
@@ -117,7 +127,7 @@ export default function App() {
         
         {/* Header */}
         <Header
-          lastUpdatedText={`~10h30 de 25/10/2026`}
+          lastUpdatedText={lastUpdatedText}
           isAutoRefreshActive={isAutoActive}
           onOpenCodeModal={() => setIsCodeModalOpen(true)}
           onOpenInfoModal={() => setIsInfoModalOpen(true)}
@@ -137,6 +147,9 @@ export default function App() {
           setSoundEnabled={setSoundEnabled}
           lastCheckedTime={lastCheckedTime}
         />
+
+        {/* Linha do Tempo dos Fusos Horários Globais */}
+        <TimezoneTimeline />
 
         {/* Card com Totais dos BUs Divulgados */}
         <TotalSummaryCard
