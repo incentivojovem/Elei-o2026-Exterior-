@@ -1,0 +1,6 @@
+{
+  "name": "Apuração Exterior 2026 - Boletins de Urna",
+  "description": "Painel em tempo real de apuração dos Boletins de Urna do exterior no 2º Turno 2026 com atualização automática periódica e detecção de novos dados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
