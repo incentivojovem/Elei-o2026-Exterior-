@@ -15,6 +15,7 @@ import { HtmlSnippetModal } from './components/HtmlSnippetModal';
 import { InfoModal } from './components/InfoModal';
 import { GithubModal } from './components/GithubModal';
 import { TimezoneTimeline } from './components/TimezoneTimeline';
+import { QrCodeCard } from './components/QrCodeCard';
 import { playNotificationSound } from './utils/sound';
 
 export default function App() {
@@ -161,6 +162,9 @@ export default function App() {
         <ResultsTable
           countries={countries}
         />
+
+        {/* QR Code para abrir o site em outro dispositivo */}
+        <QrCodeCard url="https://incentivojovem.github.io/Elei-o2026-Exterior-/" />
 
         {/* Rodapé com Informações da Fonte */}
         <Footer />
